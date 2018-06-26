@@ -13,6 +13,10 @@ sys.path[3], sys.path[9] = sys.path[9], sys.path[3]
 import cv2
 from sensor_msgs.msg import Image
 
+sys.path.append('./DB_Helper')
+from DB_Helper.DB_Helper import *
+db = get_db_conn()
+
 def extract_face_features(gray_face, wd=96, ht=96):
     gray_face = cv2.resize(gray_face, (wd, ht))
     gray_face = cv2.equalizeHist(gray_face)
@@ -56,11 +60,14 @@ def upload():
         #     gray_face = gray_face_vector.reshape((96, 96))
         #     cv2.imwrite('./gray_face.jpg', gray_face)
 			
-
+        global db
         time.sleep(5)
         if robo_talker.MSG != None:
             result = robo_talker.MSG
             robo_talker.MSG = None 
+
+
+            
             return "result:" + result 
         else:
             return "Can't recognize"

@@ -1,0 +1,5 @@
+create table Cars (
+    licence char(20) COLLATE utf8mb4_unicode_ci not null,
+    time char(20) COLLATE utf8mb4_unicode_ci not null,
+    primary key(licence)
+);
