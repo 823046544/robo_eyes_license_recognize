@@ -12,10 +12,11 @@ import sys
 sys.path[3], sys.path[9] = sys.path[9], sys.path[3]
 import cv2
 from sensor_msgs.msg import Image
+import datetime
 
 sys.path.append('./DB_Helper')
 from DB_Helper.DB_Helper import *
-db = get_db_conn()
+db_conn = get_db_conn()
 
 def extract_face_features(gray_face, wd=96, ht=96):
     gray_face = cv2.resize(gray_face, (wd, ht))
@@ -60,15 +61,37 @@ def upload():
         #     gray_face = gray_face_vector.reshape((96, 96))
         #     cv2.imwrite('./gray_face.jpg', gray_face)
 			
-        global db
+        global db_conn
         time.sleep(5)
         if robo_talker.MSG != None:
             result = robo_talker.MSG
             robo_talker.MSG = None 
 
-
-            
-            return "result:" + result 
+            #DB_Handler
+            sql = "select * from Cars where licence = %s"
+            car = None
+            with db_conn.cursor() as cursor:
+                cursor.execute(sql, (result))
+                car = cursor.fetchone()
+                db_conn.commit()
+            print(car)
+            if (car == None):
+                cur_time = '?'
+                cur_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+                print(cur_time)
+                sql = "insert into Cars (licence, time) values(%s, %s);"
+                with db_conn.cursor() as cursor:
+                    cursor.execute(sql, (result, cur_time))
+                    db_conn.commit()
+                return "Welcome~ " + result + "\nEnter at " + cur_time
+            else:
+                park_time = datetime.datetime.strptime(car['time'],'%Y-%m-%d %H:%M:%S')
+                cur_time = datetime.datetime.now()
+                sql = "delete from Cars where licence = %s"
+                with db_conn.cursor() as cursor:
+                    cursor.execute(sql, (result))
+                    db_conn.commit()
+                return result + " has parked for " + str(round((cur_time-park_time).seconds/60, 2)) + " minutes"
         else:
             return "Can't recognize"
         #with open('pic.jpg', 'wb') as f:
