@@ -11,7 +11,7 @@
 
 * 1 flask轻量级框架+OpenCV实现屏幕录制截图（像素存在一点小问题~）
 
-![这里写图片描述](https://img-blog.csdn.net/20180706125128555?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6aDgyMzA0NjU0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![这里写图片描述](https://raw.githubusercontent.com/823046544/robo_eyes_license_recognize/master/img_folder/1.png)
 
 * 2 HyperLPR 通过训练好的级联分类器进行车牌是识别以及数字识别
 
@@ -37,7 +37,7 @@ for pstr,confidence,rect in model.SimpleRecognizePlateByE2E(grr):
 
 ```
 
-![这里写图片描述](https://img-blog.csdn.net/20180706125653861?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6aDgyMzA0NjU0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![这里写图片描述](https://raw.githubusercontent.com/823046544/robo_eyes_license_recognize/master/img_folder/2.png)
 
 * 3 利用 pymql 连接数据库
 
@@ -64,8 +64,8 @@ DATABASE = {
 
 ###模拟进入
 
-![这里写图片描述](https://img-blog.csdn.net/20180706130451403?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6aDgyMzA0NjU0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![这里写图片描述](https://raw.githubusercontent.com/823046544/robo_eyes_license_recognize/master/img_folder/3.png)
 
 ###模拟离开
 
-![这里写图片描述](https://img-blog.csdn.net/20180706130539491?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2x6aDgyMzA0NjU0NA==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70)
+![这里写图片描述](https://raw.githubusercontent.com/823046544/robo_eyes_license_recognize/master/img_folder/4.png)
