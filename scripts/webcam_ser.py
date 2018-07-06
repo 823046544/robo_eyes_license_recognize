@@ -76,7 +76,6 @@ def upload():
                 db_conn.commit()
             print(car)
             if (car == None):
-                cur_time = '?'
                 cur_time = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 print(cur_time)
                 sql = "insert into Cars (licence, time) values(%s, %s);"
