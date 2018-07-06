@@ -32,7 +32,7 @@ def drawRectBox(image,rect,addText):
     return imagex
 
 
-import HyperLPR.HyperLPRLite as pr
+import HyperLPR_.HyperLPRLite as pr
 import cv2
 import numpy as np
 import csv
