@@ -7,7 +7,7 @@
 
 通过HyperLPR实现车牌识别、数字文字分割以及识别
 
-##功能实现
+## 功能实现
 
 * 1 flask轻量级框架+OpenCV实现屏幕录制截图（像素存在一点小问题~）
 
@@ -62,10 +62,10 @@ DATABASE = {
 
 ```
 
-###模拟进入
+### 模拟进入
 
 ![这里写图片描述](https://raw.githubusercontent.com/823046544/robo_eyes_license_recognize/master/img_folder/3.png)
 
-###模拟离开
+### 模拟离开
 
 ![这里写图片描述](https://raw.githubusercontent.com/823046544/robo_eyes_license_recognize/master/img_folder/4.png)
